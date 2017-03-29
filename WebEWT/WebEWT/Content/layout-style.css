@@ -1,0 +1,45 @@
+﻿#link-page li {
+    list-style: none;
+	margin: 15px;
+}
+
+#link-page a {
+    text-decoration: none;
+}
+
+#link-page a i {
+    margin: 5px;
+}
+
+#link-page a:hover {
+    color: #f05f40;
+}
+
+header {
+    background-color: #4a423f;
+	padding: 25px 30px;
+	color: #e8dbd3;
+	box-shadow: 0 2px 1px #eee; 
+}
+
+header h1 {
+	margin: 0;
+	font-size: 20px;
+	text-transform: uppercase;
+}
+
+main {
+    background: #eaeaea;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+footer {
+	padding-bottom: 20px;
+	padding-top: 20px;
+	background: #9f9d9d;
+	text-align: center;
+    color: #2c2726;
+}

@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/normalize.css" rel="stylesheet" type="text/css"/>
+    <link href="~/Content/layout-style.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"/>
+    @RenderSection("head", required: false)
+</head>
+<body>
+    <header class="">
+        <h1>Liga</h1>
+    </header>
+    <main>
+        <ul id="link-page" class="fa fa-list">
+            <li><a href="/Home/Index"><i class="fa fa-home"></i>Home page</a></li> 
+            <li><a href="/Home/Gallery"><i class="fa fa-picture-o"></i>Gallery page</a></li>   
+            <li><a href="/Image/UploadImage"><i class="fa fa-cloud-upload"></i>Upload Image page</a></li>   
+            <li><a href="/Image/GetImages"><i class="fa fa-cloud-upload"></i>JSON Image page</a></li>   
+        </ul>
+
+        @RenderBody()
+    </main>
+    <footer>
+        dddddd
+    </footer>   
+</body>
+</html>
