@@ -125,10 +125,13 @@
     <Content Include="scripts\bootstrap.js" />
     <Content Include="scripts\bootstrap.min.js" />
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="scripts\gallery.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
     <Content Include="scripts\modernizr-2.6.2.js" />
     <Content Include="Content\normalize.css" />
+    <Content Include="scripts\scroll.js" />
+    <Content Include="scripts\upload-image.js" />
     <Content Include="Web.config" />
     <Content Include="Views\Home\Gallery.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
@@ -164,6 +167,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\content\" />
     <Folder Include="Content\img\" />
   </ItemGroup>
   <PropertyGroup>

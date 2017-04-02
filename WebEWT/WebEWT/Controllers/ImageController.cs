@@ -24,6 +24,11 @@ namespace WebEWT.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        private void renameImage()
+        {
+       
+        }
+
         private string getPathToImg(string fileName)
         {
             var serverPath = Server.MapPath("~");

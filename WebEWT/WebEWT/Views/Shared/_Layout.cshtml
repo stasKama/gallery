@@ -6,24 +6,49 @@
     <link href="~/Content/normalize.css" rel="stylesheet" type="text/css"/>
     <link href="~/Content/layout-style.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"/>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     @RenderSection("head", required: false)
 </head>
 <body>
-    <header class="">
-        <h1>Liga</h1>
+    <header class="clearfix">
+        <a href="" download="~/Content/content/iL.psd"><img src="~/Content/content/iL.png"/></a>
+        <h1>Justice League</h1>
+        <a href="#" class="header-text">О нас</a>
     </header>
-    <main>
-        <ul id="link-page" class="fa fa-list">
-            <li><a href="/Home/Index"><i class="fa fa-home"></i>Home page</a></li> 
-            <li><a href="/Home/Gallery"><i class="fa fa-picture-o"></i>Gallery page</a></li>   
-            <li><a href="/Image/UploadImage"><i class="fa fa-cloud-upload"></i>Upload Image page</a></li>   
-            <li><a href="/Image/GetImages"><i class="fa fa-cloud-upload"></i>JSON Image page</a></li>   
-        </ul>
-
-        @RenderBody()
+    <main class="clearfix">
+        <div class="colonum-menu">
+            <ul id="link-page">  
+                <li><a href="/Home/Index"><i class="fa fa-home"></i>Home page</a></li> 
+                <li><a href="/Home/Gallery"><i class="fa fa-picture-o"></i>Gallery page</a></li>   
+                <li><a href="/Image/UploadImage"><i class="fa fa-cloud-upload"></i>Upload Image page</a></li>   
+                <li><a href="/Image/GetImages"><i class="fa fa-file-text-o"></i>JSON Image page</a></li>   
+            </ul>
+        </div>
+        <div class="colonum-body">
+            @RenderBody()
+        </div>
     </main>
+    <a href="#" class="scrollup"></a>
     <footer>
-        dddddd
+        <div>&copy;Станислав Поздеев 410101. Любимый цвет: <span class="my-color">Красный</span></div>
     </footer>   
+    <script>
+        $(document).ready(function () {
+
+            $(window).scroll(function () {
+                if ($(this).scrollTop() > 100) {
+                    $('.scrollup').fadeIn();
+                } else {
+                    $('.scrollup').fadeOut();
+                }
+            });
+
+            $('.scrollup').click(function () {
+                $("html, body").animate({ scrollTop: 0 }, 600);
+                return false;
+            });
+
+        });
+    </script>
 </body>
 </html>
