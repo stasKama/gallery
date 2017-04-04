@@ -1,4 +1,33 @@
-﻿h1 {
-    margin: 0;
-	padding: 0;
+﻿.grid {
+	position: relative;
+	margin: 0 auto;
+	padding: 1em 0 4em;
+	max-width: 800px;
+	list-style: none;
+	text-align: center;
+}
+
+.cell {
+    width: 370px;
+    height: 280px;
+    padding: 10px;
+    float: left;
+}
+
+.cell img {
+    max-width: 360px;
+    max-height: 270px;
+    padding: 5px;
+}
+
+.png:hover {
+    border: 3px solid #0018e3;
+}
+
+.jpg:hover {
+    border: 3px solid #ff0000;
+}
+
+.other:hover {
+    border: 3px solid #00ff08;
 }

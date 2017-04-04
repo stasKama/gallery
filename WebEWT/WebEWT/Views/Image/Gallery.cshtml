@@ -3,35 +3,21 @@
     ViewBag.Title = "Gallery";
 }
 
+@section head {
+    <script src="~/scripts/gallery.js"></script>  
+    <link href="~/Content/item-style.css" rel="stylesheet" type="text/css"/>  
+}
+
 <h1 class="page-title">Gallery</h1>
 
-<div class="image_block images"></div>
-
-<script>
-    $(document).ready(function () {
-       
-        $.ajax({
-            type: "POST",
-            url: "/Image/GetImages",
-            data: "",
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: successFunc,
-            error: errorFunc
-        });
-      
-        function successFunc(data, status) {
-           
-            var arrayImages = data;
-            var maxIndex = arrayImages.length;
-            for (var i = 0; i < arrayImages.length; i++) {
-                $(".images").append('<img src="' + arrayImages[i] + '" alt="Delete"/>');
-            }
-        }
-
-        function errorFunc(errorData) {
-            alert('Ошибка');
-        }
-    });
-
-</script>
+<div class="image-block clearfix">
+    <div class="block-expansion">
+        <label>Выберете необходимый формат картинки</label>
+        <label><input type="checkbox" value="jpg" checked/>.jpg</label>
+        <label><input type="checkbox" value="png" checked/>.png</label>
+        <label><input type="checkbox" value="other" checked/>other</label>
+    </div>
+    <div class="grid images">
+            
+    </div>
+</div>
