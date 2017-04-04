@@ -13,7 +13,7 @@ namespace WebEWT.Controllers
             return View();
         }
 
-        public ActionResult Gallery()
+        public ActionResult AboutProject()
         {
             return View();
         }

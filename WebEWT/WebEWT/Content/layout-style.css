@@ -6,6 +6,7 @@
     color: #4a423f;
     margin: 0;
     padding-left: 75px;
+    padding-bottom: 45px;
 }
 
 .my-color {
@@ -114,8 +115,34 @@ footer div {
     float: left;
     padding-left: 10px;
     padding-right: 10px;
-    position: absolute; 
-    border: 2px solid #361c1c;
+}
+
+.fixed{
+    position: fixed;
+    top: 20px;
+    bottom: 20px;
+    left: 15px;
+    right: 15px;
+}
+
+.png {
+
+}
+
+.jpg {
+
+}
+
+.other {
+
+}
+
+#menu {
+    font-size: 20px;
+}
+
+#menu i {
+    padding-right: 5px;
 }
 
 .colonum-body {
@@ -133,6 +160,7 @@ footer div {
     clear: both;
     height: 0;
 }
+
 .clearfix {
     display: inline-block;
 }

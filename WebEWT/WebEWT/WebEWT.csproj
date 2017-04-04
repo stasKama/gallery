@@ -119,6 +119,7 @@
   <ItemGroup>
     <Content Include="Content\item-style.css" />
     <Content Include="Content\layout-style.css" />
+    <Content Include="Content\upload-images-page.css" />
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />
     <Content Include="scripts\ai.0.22.9-build00167.min.js" />
@@ -128,12 +129,12 @@
     <Content Include="scripts\gallery.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
+    <Content Include="scripts\js-functions-upload-images.js" />
     <Content Include="scripts\modernizr-2.6.2.js" />
     <Content Include="Content\normalize.css" />
     <Content Include="scripts\scroll.js" />
     <Content Include="scripts\upload-image.js" />
     <Content Include="Web.config" />
-    <Content Include="Views\Home\Gallery.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Image\UploadImage.cshtml" />
   </ItemGroup>
@@ -158,6 +159,8 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Home\AboutProject.cshtml" />
+    <Content Include="Views\Image\Gallery.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

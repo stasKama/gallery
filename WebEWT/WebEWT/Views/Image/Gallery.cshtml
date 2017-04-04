@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Gallery";
+}
+
+<h1 class="page-title">Gallery</h1>
+
+<div class="image_block images"></div>
+
+<script>
+    $(document).ready(function () {
+       
+        $.ajax({
+            type: "POST",
+            url: "/Image/GetImages",
+            data: "",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: successFunc,
+            error: errorFunc
+        });
+      
+        function successFunc(data, status) {
+           
+            var arrayImages = data;
+            var maxIndex = arrayImages.length;
+            for (var i = 0; i < arrayImages.length; i++) {
+                $(".images").append('<img src="' + arrayImages[i] + '" alt="Delete"/>');
+            }
+        }
+
+        function errorFunc(errorData) {
+            alert('Ошибка');
+        }
+    });
+
+</script>

@@ -6,7 +6,10 @@
 @section head
 {
     <script src="~/scripts/upload-image.js"></script>
+    <script src="~/scripts/js-functions-upload-images.js"></script>
 }
+
+<h3>@ViewBag.Message</h3>
 
 <h1 class="page-title">Upload Image page</h1>
 <form action="/Image/AddImage" method="post" enctype = "multipart/form-data">
@@ -15,9 +18,11 @@
     </p>
     <p>
         <label for="file-name">New name image</label> <input type="text" name="file-name" id="file-name"/>
-        <img id="preview" style="width:300px"/>
     </p>
     <p>
-        <input id="submit" type="submit" name="send-form" />
+        <input id="submit-upload" type="submit" name="send-form" />
+    </p>
+    <p>
+        <img id="preview" style="width:300px"/>
     </p>
 </form>
