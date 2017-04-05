@@ -1,24 +1,25 @@
 ﻿$(document).ready(function () {
 
     var checkboxExpansion = $("input:checkbox");
-    var arrayImages;
     var maxIndex;
     var srcImageShow;
     var indexImage;
-
-    $.ajax({
-        type: "POST",
-        url: "/Image/GetImages",
-        data: "",
-        contentType: "application/json; charset=utf-8",
-        dataType: "json",
-        success: successFunc,
-        error: errorFunc
-    });
+    
+    function arrayImages() {
+        $.ajax({
+            type: "POST",
+            url: "/Image/GetImages",
+            data: "",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            success: successFunc,
+            error: errorFunc
+        });
+    }
 
     function successFunc(data, status) {
 
-        arrayImages = data;
+        var arrayImages = data;
         maxIndex = arrayImages.length;
         for (var i = 0; i < maxIndex; i++) {
             var expansion = arrayImages[i].substring(arrayImages[i].lastIndexOf('.') + 1);
@@ -31,6 +32,8 @@
     function errorFunc(errorData) {
         alert('Ошибка загрузки');
     }
+
+    arrayImages();
 
     $("input:checkbox").on("change", function () {
         var $imagesGallery = $(".images").find("img");
@@ -47,7 +50,7 @@
             }
         }
     });
-    
+
     $(document).on('click', 'img', function () {
         if ($(".one-image").is(":hidden")) {
             $('html').addClass("scroll-html");
@@ -64,6 +67,39 @@
             $('html').removeClass("scroll-html");
             $(".one-image").hide();
         }
+    });
+
+    $("#bt-download").click(function () {
+        $("#bt-download").attr("download", srcImageShow);
+    });
+
+    $("#bt-delete").click(function (e) {
+        $(".question").show();
+    });
+
+    $(".bt-yes").click(function () {
+        $.ajax({
+            url: "/Image/DeleteImage",
+            type: 'POST',
+            data: {
+                nameImage: srcImageShow.substring(srcImageShow.lastIndexOf("/") + 1)
+            },
+            success: function (data) {
+                $('html').removeClass("scroll-html");
+                $(".question").hide();
+                $(".one-image").hide();
+                $(".images").empty();
+                arrayImages();
+            },
+            error: function (error) {
+                alert("Данные не удалены, повторите процедуру после обновления страницы");
+            }
+        });
+        e.preventDefault();
+    });
+
+    $(".bt-no").click(function () {
+        $(".question").hide();
     });
 
     $("#bt-next-img").on('click', function () {
@@ -97,5 +133,5 @@
             $("#bt-previous-img").hide();
         }
     }
-
+   
 });

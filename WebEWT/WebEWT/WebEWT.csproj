@@ -119,6 +119,7 @@
   <ItemGroup>
     <Content Include="Content\item-style.css" />
     <Content Include="Content\layout-style.css" />
+    <Content Include="Content\panel-for-image.css" />
     <Content Include="Content\upload-images-page.css" />
     <Content Include="Global.asax" />
     <Content Include="scripts\ai.0.22.9-build00167.js" />

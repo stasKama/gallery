@@ -1,0 +1,108 @@
+﻿.one-image {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    bottom: 0; 
+    right: 0; 
+    margin: 0 auto; 
+    text-align: center;
+}
+
+.one-image span,
+.one-image a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.one-image a:hover,
+.one-image span:hover {
+    color: #f05f40;
+}
+
+.one-image span i,
+.one-image a i {
+    padding-right: 5px;
+}
+
+#one-img {
+    vertical-align: middle;
+    width: 800px;
+    height: 600px;
+    padding: 4% 0;
+}
+
+#div-img {
+    max-height: calc(100% - 70px);
+}
+
+.scroll-html {
+    overflow: hidden;
+}
+
+.one-image input {
+    font-size: 40px;
+    background-color: #f2f2f2;
+    border-radius: 0 5px 5px 0;
+    font-weight: 800;
+    opacity: 0.6;
+}
+
+.one-image input:hover {
+    opacity: 1;
+	box-shadow: 0 5px 30px #fff;
+    cursor: pointer;
+}
+
+#bt-previous-img {
+    border-radius: 5px 0 0 5px;
+    left: 30px;
+}
+
+#bt-next-img {
+    right: 30px;
+}
+
+.question {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    bottom: 0; 
+    right: 0; 
+    margin: 0 auto; 
+    text-align: center;
+}
+
+.question input {
+    width: 100px;
+    height: 30px;
+    border-radius: 10px;
+	outline: none;
+	border: none;
+}
+
+.bt-yes {
+    background-color: #1f862a;
+}
+
+.bt-no {
+    background-color: #ff0000;
+}
+
+.bt-yes, .bt-no {
+    cursor: pointer;
+}
+
+.bt-yes:hover, .bt-no:hover {
+    color: #fff;
+}
+
+.div-text {
+    padding: 20% 0 10px 0;
+    color: #fff9c1;
+}

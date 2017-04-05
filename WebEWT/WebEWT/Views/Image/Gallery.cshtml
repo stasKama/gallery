@@ -6,6 +6,7 @@
 @section head {
     <script src="~/scripts/gallery.js"></script>  
     <link href="~/Content/item-style.css" rel="stylesheet" type="text/css"/>  
+    <link href="~/Content/panel-for-image.css" rel="stylesheet" type="text/css" />  
 }
 
 <h1 class="page-title">Gallery</h1>
@@ -17,12 +18,29 @@
         <label><input type="checkbox" value="png" checked/>.png</label>
         <label><input type="checkbox" value="other" checked/>other</label>
     </div>
-    <div class="grid images">
+    <div id="er" class="grid images">
             
     </div>
 </div>
+
 <div class="one-image">
-    <input id="bt-previous-img" type="button" value="&lt"/>
-    <img id="one-img" src="" alt="Невозможно отбразить"/>
-    <input id="bt-next-img" type="button" value="&gt;">
+    <div id="div-img">
+        <input id="bt-previous-img" type="button" value="&lt"/>
+        <img id="one-img" src="" alt="Невозможно отбразить"/>
+        <input id="bt-next-img" type="button" value="&gt;"/>
+    </div>
+    <div>
+        <a href="" id="bt-download"><i class="fa fa-download"></i>Download</a>
+        <span id="bt-delete"><i class="fa fa-trash"></i>Delete image</span>
+    </div>
+</div>
+
+<div class="question">
+    <div class="div-text">
+        <p>Вы действительно хотите удалить картинку?</p>
+    </div>
+    <div>
+        <input type="button" class="bt-yes" value="Yes" />
+        <input type="button" class="bt-no" value="No" />
+    </div>
 </div>

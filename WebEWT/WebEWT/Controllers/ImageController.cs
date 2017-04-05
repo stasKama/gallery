@@ -23,28 +23,34 @@ namespace WebEWT.Controllers
             return View();
         }
 
-        public ActionResult AddImage(HttpPostedFileBase file)
+        public ActionResult AddImage(HttpPostedFileBase file, string fileName)
         {
-            var fileName = Request.Form["file-name"].Length == 0 ? file.FileName : Request.Form["file-name"] + file.FileName.Substring(file.FileName.LastIndexOf("."));
+            fileName = fileName.Length == 0 ? file.FileName : fileName + file.FileName.Substring(file.FileName.LastIndexOf("."));
             var path = getPathToImg(fileName);
             file.SaveAs(path);
             return RedirectToAction("Index", "Home");
         }
 
-    /*    public JsonResult AddImageAjax(string fileName, string fileData)
+        public JsonResult DeleteImage(string nameImage)
         {
-            var dataIndex = fileData.IndexOf("base64", StringComparison.Ordinal) + 7;
-            var cleareData = fileData.Substring(dataIndex);
-            var fileInformation = Convert.FromBase64String(cleareData);
-            var bytes = fileInformation.ToArray();
-
-            var path = getPathToImg(fileName);
-            var fileStream = System.IO.File.Create(path);
-
-            fileStream.Write(bytes, 0, bytes.Length);
-            fileStream.Close();
+            var path = getPathToImg(nameImage);
+            System.IO.File.Delete(path);
             return Json(true, JsonRequestBehavior.AllowGet);
-        }*/
+        }
+        /*    public JsonResult AddImageAjax(string fileName, string fileData)
+            {
+                var dataIndex = fileData.IndexOf("base64", StringComparison.Ordinal) + 7;
+                var cleareData = fileData.Substring(dataIndex);
+                var fileInformation = Convert.FromBase64String(cleareData);
+                var bytes = fileInformation.ToArray();
+
+                var path = getPathToImg(fileName);
+                var fileStream = System.IO.File.Create(path);
+
+                fileStream.Write(bytes, 0, bytes.Length);
+                fileStream.Close();
+                return Json(true, JsonRequestBehavior.AllowGet);
+            }*/
 
         private string getPathToImg(string fileName)
         {
