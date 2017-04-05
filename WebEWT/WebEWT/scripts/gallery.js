@@ -5,26 +5,23 @@
     var srcImageShow;
     var indexImage;
     
-    function arrayImages() {
-        $.ajax({
-            type: "POST",
-            url: "/Image/GetImages",
-            data: "",
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            success: successFunc,
-            error: errorFunc
-        });
-    }
+    $.ajax({
+        type: "POST",
+        url: "/Image/GetImages",
+        data: "",
+        contentType: "application/json; charset=utf-8",
+        dataType: "json",
+        success: successFunc,
+        error: errorFunc
+    });
 
     function successFunc(data, status) {
-
         var arrayImages = data;
         maxIndex = arrayImages.length;
         for (var i = 0; i < maxIndex; i++) {
             var expansion = arrayImages[i].substring(arrayImages[i].lastIndexOf('.') + 1);
             var classImage = expansion != 'png' && expansion != 'jpg' ? 'other' : expansion;
-            var image = '<img class="cell ' + classImage + '" src="' + arrayImages[i] + '" alt="Невозможно отбразить"/>'
+            var image = '<img class="cell ' + classImage + '" src="' + arrayImages[i] + '" alt="Can not display"/>'
             $(".images").append(image);
         }
     }
@@ -33,13 +30,11 @@
         alert('Ошибка загрузки');
     }
 
-    arrayImages();
-
     $("input:checkbox").on("change", function () {
         var $imagesGallery = $(".images").find("img");
         $($imagesGallery).hide();
         for (var i = 0; i < checkboxExpansion.length; i++) {
-            if ($(checkboxExpansion[i]).prop('checked')) {
+            if ($(checkboxExpansion[i]).attr('checked')) {
                 for (var j = 0; j < $imagesGallery.length; j++) {
                     var expansion = $($imagesGallery[j]).attr("src").split(".")[1];
                     expansion = expansion != 'png' && expansion != 'jpg' ? 'other' : expansion;
@@ -85,11 +80,11 @@
                 nameImage: srcImageShow.substring(srcImageShow.lastIndexOf("/") + 1)
             },
             success: function (data) {
+                console.log(checkboxExpansion);
+                $(getImage()).remove();
                 $('html').removeClass("scroll-html");
                 $(".question").hide();
-                $(".one-image").hide();
-                $(".images").empty();
-                arrayImages();
+                $(".one-image").hide();               
             },
             error: function (error) {
                 alert("Данные не удалены, повторите процедуру после обновления страницы");

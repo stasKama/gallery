@@ -1,12 +1,11 @@
 ﻿$(document).ready(function () {
-
     var previewId = "#preview";
     var fileId = "#file";
-    var submitid = '#submit-upload';
-    var newName = '#file-name';
+    var submitId = '#submit';
+    var newNameId = '#fileName';
 
     var fileInfo = {};
-   
+
     $(fileId).change(function () {
         var file = this.files[0];
         var reader = new FileReader();
@@ -20,24 +19,22 @@
 
         reader.readAsDataURL(file);
     });
-    
-    /*$(submitid).click(function (e) {
-        var nameImage = $(newName).value.length == 0 ? fileInfo.filename : $(newName).value + fileInfo.filename.substring(fileInfo.filename.lastIndexOf('.'));
-        console.log(nameImage);
-        $(submitid).prop('disabled', true);
+
+    $(submitId).click(function (e) {
+        $(submitId).prop('disabled', true);
         $.ajax({
-            url: "/Image/AddImageAjax",
             type: 'POST',
+            url: "/Image/AddImageAjax",
             data: {
-                fileName: nameImage,
-                fileData: fileInfo.data
+                fileName: fileInfo.filename,
+                fileData: fileInfo.data,
+                newName:  $(newNameId).val().toString()
             },
             success: function (data) {
-                $(submitid).prop('disabled', false);
+                $(submitId).prop('disabled', false);
                 $(previewId).attr("src", "");
                 $(fileId).val("");
-                $(submitid).val("");
-                alert('Image upload in server');
+                $(newNameId).val("");
             },
             error: function () {
                 alert('Error upload image');
@@ -45,5 +42,8 @@
         });
 
         e.preventDefault();
-    });*/
+
+
+    });
+
 });
