@@ -99,6 +99,6 @@ C:\Users\Lenovo\Documents\Git\WebEWT\WebEWT\bin\ru\System.Web.Webpages.Deploymen
 C:\Users\Lenovo\Documents\Git\WebEWT\WebEWT\bin\ru\System.Web.Webpages.Razor.resources.dll
 C:\Users\Lenovo\Documents\Git\WebEWT\WebEWT\bin\ru\System.Web.Helpers.resources.dll
 C:\Users\Lenovo\Documents\Git\WebEWT\WebEWT\bin\ru\System.Web.Mvc.resources.dll
-C:\Users\Lenovo\Documents\Git\WebEWT\WebEWT\obj\Debug\WebEWT.csprojResolveAssemblyReference.cache
 C:\Users\Lenovo\Documents\Git\WebEWT\WebEWT\obj\Debug\WebEWT.dll
 C:\Users\Lenovo\Documents\Git\WebEWT\WebEWT\obj\Debug\WebEWT.pdb
+C:\Users\Lenovo\Documents\Git\WebEWT\WebEWT\obj\Debug\WebEWT.csprojResolveAssemblyReference.cache

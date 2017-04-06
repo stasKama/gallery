@@ -4,6 +4,7 @@
     var maxIndex;
     var srcImageShow;
     var indexImage;
+    var arrayImages;
     
     $.ajax({
         type: "POST",
@@ -16,7 +17,7 @@
     });
 
     function successFunc(data, status) {
-        var arrayImages = data;
+        arrayImages = data;
         maxIndex = arrayImages.length;
         for (var i = 0; i < maxIndex; i++) {
             var expansion = arrayImages[i].substring(arrayImages[i].lastIndexOf('.') + 1);
@@ -25,24 +26,29 @@
             $(".images").append(image);
         }
     }
-
+   
     function errorFunc(errorData) {
         alert('Ошибка загрузки');
     }
 
     $("input:checkbox").on("change", function () {
+        arrayImages = [];
         var $imagesGallery = $(".images").find("img");
         $($imagesGallery).hide();
+        var arrayExpansionSelected = [];
         for (var i = 0; i < checkboxExpansion.length; i++) {
             if ($(checkboxExpansion[i]).attr('checked')) {
-                for (var j = 0; j < $imagesGallery.length; j++) {
-                    var expansion = $($imagesGallery[j]).attr("src").split(".")[1];
-                    expansion = expansion != 'png' && expansion != 'jpg' ? 'other' : expansion;
-                    if (expansion == $(checkboxExpansion[i]).val().toString()) {
-                        $($imagesGallery[j]).show();
-                    }
-                }
+                arrayExpansionSelected.push(($(checkboxExpansion[i]).val()).toString());
             }
+        }
+        for (var i = 0; i < $imagesGallery.length; i++) {
+            var expansion = $($imagesGallery[i]).attr("src").split(".")[1];
+            expansion = expansion != 'png' && expansion != 'jpg' ? 'other' : expansion;
+            if (arrayExpansionSelected.indexOf(expansion) != -1) {
+                $($imagesGallery[i]).show();
+                arrayImages.push($($imagesGallery[i]).attr("src"));
+            }
+
         }
     });
 
@@ -52,7 +58,7 @@
             $(".one-image").show();
             srcImageShow = $(this).attr("src");
             $("#one-img").attr("src", srcImageShow);
-            indexImage = $(this).index();
+            indexImage = arrayImages.indexOf(srcImageShow);
             $("#bt-next-img").show();
             $("#bt-previous-img").show();
             testLast();
@@ -68,11 +74,11 @@
         $("#bt-download").attr("download", srcImageShow);
     });
 
-    $("#bt-delete").click(function (e) {
+    $("#bt-delete").click(function () {
         $(".question").show();
     });
 
-    $(".bt-yes").click(function () {
+    $(".bt-yes").click(function (e) {
         $.ajax({
             url: "/Image/DeleteImage",
             type: 'POST',
@@ -80,7 +86,10 @@
                 nameImage: srcImageShow.substring(srcImageShow.lastIndexOf("/") + 1)
             },
             success: function (data) {
-                console.log(checkboxExpansion);
+                delete arrayImages[arrayImages.indexOf(srcImageShow)];
+                arrayImages.filter(function (x) {
+                    return x !== undefined && x !== null;
+                });
                 $(getImage()).remove();
                 $('html').removeClass("scroll-html");
                 $(".question").hide();
@@ -99,17 +108,15 @@
 
     $("#bt-next-img").on('click', function () {
         $("#bt-previous-img").show();
-        srcImageShow = $(getImage()).next().attr('src');
+        srcImageShow = arrayImages[++indexImage];
         $("#one-img").attr("src", srcImageShow);
-        indexImage++;
         testLast();
     });
 
     $("#bt-previous-img").on('click', function () {
         $("#bt-next-img").show();
-        srcImageShow = $(getImage()).prev().attr('src')
+        srcImageShow = arrayImages[--indexImage];
         $("#one-img").attr("src", srcImageShow);
-        indexImage--;
         testFirst();
     });
 
@@ -118,7 +125,7 @@
     }
 
     function testLast() {
-        if (indexImage == maxIndex - 1) {
+        if (indexImage == arrayImages.length - 1) {
             $("#bt-next-img").hide();
         }
     }
