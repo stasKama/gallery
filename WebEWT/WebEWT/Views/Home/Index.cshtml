@@ -3,5 +3,22 @@
     ViewBag.Title = "Home";
 }
 
-<h1 class="page-title">Home page</h1>
+@section head
+{
+    <link href="~/Content/home-text-style.css" rel="stylesheet" type="text/css" />
+    <script src="~/scripts/home-script.js"></script>
+}
 
+<h1 class="page-title">Justice League</h1>
+<p>Text</p>
+<div class="wrapper">
+    <h2>h</h2>
+    <div>
+        <article>
+            <img src="~/Content/img/5.jpg" class="left-img" /> 
+        </article>
+        <div class="like">
+            <span>Likes this hero</span><a href="" class="link-heart"><i class="fa fa-heart"></i><span>0</span></a>
+        </div>
+    </div>
+</div>

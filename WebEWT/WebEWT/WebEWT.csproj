@@ -117,6 +117,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\home-text-style.css" />
     <Content Include="Content\item-style.css" />
     <Content Include="Content\layout-style.css" />
     <Content Include="Content\panel-for-image.css" />
@@ -128,6 +129,7 @@
     <Content Include="scripts\bootstrap.min.js" />
     <None Include="scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="scripts\gallery.js" />
+    <Content Include="scripts\home-script.js" />
     <Content Include="scripts\jquery-1.10.2.js" />
     <Content Include="scripts\jquery-1.10.2.min.js" />
     <Content Include="scripts\js-functions-upload-images.js" />

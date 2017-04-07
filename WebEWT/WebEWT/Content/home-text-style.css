@@ -1,0 +1,56 @@
+﻿.wrapper {
+    max-width: calc(100% - 250px);
+    margin-top: 20px;
+    margin-left: 60px;
+    margin-right: 60px;
+    margin-bottom: 30px;
+}
+
+.wrapper h2 {
+    background: #4a423f;
+    border-radius:5px 5px 0 0;
+    margin: 10px 0 0 0;
+    color: #e8dbd3;
+    font-size: 20px;
+    padding: 5px;
+    text-align: center;
+}
+
+.wrapper h2:hover {
+    cursor: pointer;
+    background: #f05f40;
+}
+
+.wrapper div {
+    background:#fffff6;
+    border-radius:0 0 5px 5px;
+    padding: 5px;
+    color: #4a423f;
+    min-height: 50px;
+}
+
+.link-heart {
+    text-decoration: none;
+    color: #4a423f;
+}
+
+.link-heart:hover {
+    color: #f05f40;
+}
+
+.left-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    float:left; 
+    margin: 7px 7px 7px 0
+}
+
+.like {
+    margin-top: 5px;
+    text-align: right;
+}
+
+.like span {
+    padding: 5px;
+}

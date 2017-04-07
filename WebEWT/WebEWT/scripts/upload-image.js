@@ -3,14 +3,15 @@
     var fileId = "#file";
     var submitId = '#submit';
     var newNameId = '#fileName';
+    var messageClass = ".message";
 
     var fileInfo = {};
-    
+    $(submitId).hide();
+
     $(fileId).change(function () {
         var file = this.files[0];
         var reader = new FileReader();
-        $(submitId).prop('disabled', false);
-        $(submitId).addClass(".active-submit");
+        $(submitId).show();
         reader.onload = function (event) {
             var fileData = event.target.result;
             $(previewId).attr("src", fileData);
@@ -22,7 +23,7 @@
     });
 
     $(submitId).click(function (e) {
-        $(submitId).prop('disabled', true);
+        $(submitId).hide();
         $.ajax({
             type: 'POST',
             url: "/Image/AddImageAjax",
@@ -32,11 +33,10 @@
                 newName: $(newNameId).val().toString()
             },
             success: function (data) {
-                $(submitId).prop('disabled', false);
                 $(previewId).attr("src", "");
                 $(fileId).val("");
                 $(newNameId).val("");
-                $(submitId).remuveClass(".active-submit");
+                $(messageClass).show();
             },
             error: function () {
                 alert('Error upload image');

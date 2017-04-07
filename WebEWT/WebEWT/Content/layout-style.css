@@ -100,13 +100,13 @@ footer div {
 }
 
 .scrollup {
-    width:40px;
-    opacity:0.3;
-    height:40px;
-    position:fixed;
-    bottom:70px;
-    right:70px;
-    display:none;
+    width: 40px;
+    opacity: 0.4;
+    height: 40px;
+    position: fixed;
+    bottom: 70px;
+    left: 70px;
+    display: none;
     background: url('content/icon_top.png');
 }
 
