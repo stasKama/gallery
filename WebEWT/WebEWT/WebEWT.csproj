@@ -137,12 +137,15 @@
     <Content Include="Content\normalize.css" />
     <Content Include="scripts\scroll.js" />
     <Content Include="scripts\upload-image.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Image\UploadImage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -164,6 +167,8 @@
     <Content Include="scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Home\AboutProject.cshtml" />
     <Content Include="Views\Image\Gallery.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
