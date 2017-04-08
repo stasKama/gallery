@@ -102,3 +102,8 @@ C:\Users\Lenovo\Documents\Git\WebEWT\WebEWT\bin\ru\System.Web.Mvc.resources.dll
 C:\Users\Lenovo\Documents\Git\WebEWT\WebEWT\obj\Debug\WebEWT.dll
 C:\Users\Lenovo\Documents\Git\WebEWT\WebEWT\obj\Debug\WebEWT.pdb
 C:\Users\Lenovo\Documents\Git\WebEWT\WebEWT\obj\Debug\WebEWT.csprojResolveAssemblyReference.cache
+C:\Users\Lenovo\Documents\Git\WebEWT\WebEWT\bin\EntityFramework.dll
+C:\Users\Lenovo\Documents\Git\WebEWT\WebEWT\bin\EntityFramework.SqlServer.dll
+C:\Users\Lenovo\Documents\Git\WebEWT\WebEWT\bin\EntityFramework.xml
+C:\Users\Lenovo\Documents\Git\WebEWT\WebEWT\bin\EntityFramework.SqlServer.xml
+C:\Users\Lenovo\Documents\Git\WebEWT\WebEWT\bin\ru\EntityFramework.resources.dll

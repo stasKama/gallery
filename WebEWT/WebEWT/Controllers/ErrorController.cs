@@ -14,8 +14,7 @@ namespace WebEWT.Controllers
         }
         public ViewResult NotFound()
         {
-            Response.StatusCode = 404;  
-            return View("NotFound");
+            return View();
         }
     }
 }

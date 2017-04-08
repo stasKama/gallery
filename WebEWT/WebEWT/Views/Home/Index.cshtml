@@ -1,8 +1,8 @@
-﻿
-@{
-    ViewBag.Title = "Home";
-}
+﻿@model IEnumerable<WebEWT.Models.Hero>
 
+@{
+    ViewBag.Title = "Justice League";
+}
 @section head
 {
     <link href="~/Content/home-text-style.css" rel="stylesheet" type="text/css" />
@@ -10,12 +10,53 @@
 }
 
 <h1 class="page-title">Justice League</h1>
-<p>Text</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImageURL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.History)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CountLike)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Color)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ImageURL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.History)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CountLike)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Color)
+        </td>
+    </tr>
+}
+
+</table>
+
 <div class="wrapper">
     <h2>h</h2>
     <div>
         <article>
-            <img src="~/Content/img/5.jpg" class="left-img" /> 
+            <img src="~/Content/img/5.jpg" class="left-img" />
         </article>
         <div class="like">
             <span>Likes this hero</span><a href="" class="link-heart"><i class="fa fa-heart"></i><span>0</span></a>

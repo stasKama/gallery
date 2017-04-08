@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище HeroEntitiesContainer" CdmEntityContainer="HeroDBEntities">
+    <EntitySetMapping Name="Hero">
+      <EntityTypeMapping TypeName="HeroEntities.Hero">
+        <MappingFragment StoreEntitySet="Hero">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+          <ScalarProperty Name="History" ColumnName="History" />
+          <ScalarProperty Name="CountLike" ColumnName="CountLike" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
