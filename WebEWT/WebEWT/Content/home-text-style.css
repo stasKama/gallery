@@ -30,8 +30,8 @@
 }
 
 .link-heart {
+    cursor: pointer;
     text-decoration: none;
-    color: #4a423f;
 }
 
 .link-heart:hover {
@@ -39,8 +39,8 @@
 }
 
 .left-img {
-    width: 50px;
-    height: 50px;
+    width: 75px;
+    height: 75px;
     border-radius: 50%;
     float:left; 
     margin: 7px 7px 7px 0

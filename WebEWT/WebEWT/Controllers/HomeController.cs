@@ -15,6 +15,16 @@ namespace WebEWT.Controllers
             return View(db.Hero.ToList());
         }
 
+        [HttpPost]
+        public JsonResult IncrementCountLike(string idHero)
+        {
+            Hero hero = db.Hero.Find(Int32.Parse(idHero));
+            hero.CountLike++;
+            db.SaveChanges();
+            var json = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(hero);
+            return Json(json, JsonRequestBehavior.AllowGet); ;
+        }
+
         public ActionResult AboutProject()
         {
             return View();
