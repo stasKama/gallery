@@ -1,9 +1,32 @@
-﻿.wrapper {
-    max-width: calc(100% - 250px);
+﻿.pictute-hero {
+    text-align: center;
+    height: 130px;
+    width: calc(100% - 150px);
+    margin: 20px;
+    overflow: hidden;
+}
+
+.effect-img img {
+	width: calc(100% - 150px);
+	height: auto;
+    margin-top: 0px;
+}
+
+.wrapper, .text-JL {
     margin-top: 20px;
     margin-left: 60px;
     margin-right: 60px;
     margin-bottom: 30px;
+}
+
+.wrapper {
+    max-width: calc(100% - 250px);
+}
+
+.text-JL {
+    max-width: calc(100% - 250px);
+    text-indent: 1.5em; 
+    text-align: justify; 
 }
 
 .wrapper h2 {
@@ -28,6 +51,8 @@
     color: #4a423f;
     min-height: 50px;
 }
+
+
 
 .link-heart {
     cursor: pointer;
