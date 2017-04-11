@@ -21,7 +21,7 @@ namespace WebEWT.Controllers
             Hero hero = db.Hero.Find(Int32.Parse(idHero));
             hero.CountLike++;
             db.SaveChanges();
-            var json = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(hero);
+            var json = new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(db.Hero.Find(Int32.Parse(idHero)));
             return Json(json, JsonRequestBehavior.AllowGet); ;
         }
 
