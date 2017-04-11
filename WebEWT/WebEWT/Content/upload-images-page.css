@@ -10,12 +10,19 @@
     border-radius: 5px;
 	outline: none;
 	border: none;
-    background-color: #2dad00;
     color: #000;
     cursor: pointer;
 }
 
-#submit:hover {
+.no-active {
+    background-color: #ff0000;
+}
+
+.active {
+    background-color: #2dad00;
+}
+
+.active:hover {
     color: #fdffc9;
 }
 

@@ -52,22 +52,21 @@
         }
     });
 
-    $(document).on('click', 'img', function () {
-        if ($(".one-image").is(":hidden")) {
-            $('html').addClass("scroll-html");
-            $(".one-image").show();
-            srcImageShow = $(this).attr("src");
-            $("#one-img").attr("src", srcImageShow);
-            indexImage = arrayImages.indexOf(srcImageShow);
-            $("#bt-next-img").show();
-            $("#bt-previous-img").show();
-            testLast();
-            testFirst();
-        }
-        else {
-            $('html').removeClass("scroll-html");
-            $(".one-image").hide();
-        }
+    $(document).on('click', '.images img', function () {
+        $('html').addClass("scroll-html");
+        $(".one-image").show();
+        srcImageShow = $(this).attr("src");
+        $("#one-img").attr("src", srcImageShow);
+        indexImage = arrayImages.indexOf(srcImageShow);
+        $("#bt-next-img").show();
+        $("#bt-previous-img").show();
+        testLast();
+        testFirst();
+    });
+
+    $("#one-img").click(function () {
+        $('html').removeClass("scroll-html");
+        $(".one-image").hide();
     });
 
     $("#bt-download").click(function () {

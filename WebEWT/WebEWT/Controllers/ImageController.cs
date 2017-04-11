@@ -44,17 +44,38 @@ namespace WebEWT.Controllers
 
         public JsonResult AddImageAjax(string fileName, string fileData, string newName)
         {
-            var dataIndex = fileData.IndexOf("base64", StringComparison.Ordinal) + 7;
-            var cleareData = fileData.Substring(dataIndex);
-            var fileInformation = Convert.FromBase64String(cleareData);
-            var bytes = fileInformation.ToArray();
+            var newNameImage = getName(fileName, newName);
+            var result = !(isImageName(newNameImage));
+            if (result) {
+                var path = getPathToImg(newNameImage);
+                var dataIndex = fileData.IndexOf("base64", StringComparison.Ordinal) + 7;
+                var cleareData = fileData.Substring(dataIndex);
+                var fileInformation = Convert.FromBase64String(cleareData);
+                var bytes = fileInformation.ToArray();
 
-            var path = getPathToImg(getName(fileName, newName));
-            var fileStream = System.IO.File.Create(path);
 
-            fileStream.Write(bytes, 0, bytes.Length);
-            fileStream.Close();
-            return Json(true, JsonRequestBehavior.AllowGet);
+                var fileStream = System.IO.File.Create(path);
+
+                fileStream.Write(bytes, 0, bytes.Length);
+                fileStream.Close();
+     
+            }
+            return Json(result, JsonRequestBehavior.AllowGet);
+        }
+
+        private bool isImageName(string name)
+        {
+            var serverPath = Server.MapPath("~");
+            var pathToImageFolder = Path.Combine(serverPath, "Content", "img");
+            var imageFiles = Directory.GetFiles(pathToImageFolder);
+            foreach(string nameImg in imageFiles.Select(buildImage))
+            {
+                if (nameImg.Contains(name))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         private string getPathToImg(string fileName)
@@ -70,10 +91,10 @@ namespace WebEWT.Controllers
             var pathToImageFolder = Path.Combine(serverPath, "Content", "img");
             var imageFiles = Directory.GetFiles(pathToImageFolder);
             var imgesUrl = imageFiles.Select(buildImage);
-            //  JavaScriptSerializer serializer = new JavaScriptSerializer();
-            // return serializer.Serialize(imges);
             return Json(imgesUrl, JsonRequestBehavior.AllowGet);
         }
+
+       
 
         private string buildImage(string path)
         {
