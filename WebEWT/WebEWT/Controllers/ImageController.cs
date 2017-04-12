@@ -23,14 +23,9 @@ namespace WebEWT.Controllers
             return View();
         }
 
-        private string getName(string oldName, string newName)
-        {
-            return newName.Length == 0 ? oldName : (newName + oldName.Substring(oldName.LastIndexOf(".")));
-        }
-
         public ActionResult AddImage(HttpPostedFileBase file, string fileName)
         {
-            var path = getPathToImg(getName(file.FileName, fileName));
+            var path = getPathToImg(fileName);
             file.SaveAs(path);
             return RedirectToAction("Index", "Home");
         }
@@ -42,12 +37,17 @@ namespace WebEWT.Controllers
             return Json(true, JsonRequestBehavior.AllowGet);
         }
 
-        public JsonResult AddImageAjax(string fileName, string fileData, string newName)
+        [HttpPost]
+        public JsonResult CheckImageName(string imageName)
         {
-            var newNameImage = getName(fileName, newName);
-            var result = !(isImageName(newNameImage));
+            return Json(!(isImageName(imageName)), JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult AddImageAjax(string fileName, string fileData)
+        {
+            var result = !(isImageName(fileName));
             if (result) {
-                var path = getPathToImg(newNameImage);
+                var path = getPathToImg(fileName);
                 var dataIndex = fileData.IndexOf("base64", StringComparison.Ordinal) + 7;
                 var cleareData = fileData.Substring(dataIndex);
                 var fileInformation = Convert.FromBase64String(cleareData);
@@ -63,12 +63,17 @@ namespace WebEWT.Controllers
             return Json(result, JsonRequestBehavior.AllowGet);
         }
 
-        private bool isImageName(string name)
+        private IEnumerable<string> getAllImageUrl()
         {
             var serverPath = Server.MapPath("~");
             var pathToImageFolder = Path.Combine(serverPath, "Content", "img");
             var imageFiles = Directory.GetFiles(pathToImageFolder);
-            foreach(string nameImg in imageFiles.Select(buildImage))
+            return imageFiles.Select(buildImage);
+        }
+
+        private bool isImageName(string name)
+        {
+            foreach (string nameImg in getAllImageUrl())
             {
                 if (nameImg.Contains(name))
                 {
@@ -87,14 +92,9 @@ namespace WebEWT.Controllers
         [HttpPost]
         public JsonResult GetImages()
         {
-            var serverPath = Server.MapPath("~");
-            var pathToImageFolder = Path.Combine(serverPath, "Content", "img");
-            var imageFiles = Directory.GetFiles(pathToImageFolder);
-            var imgesUrl = imageFiles.Select(buildImage);
+            var imgesUrl = getAllImageUrl();
             return Json(imgesUrl, JsonRequestBehavior.AllowGet);
         }
-
-       
 
         private string buildImage(string path)
         {
