@@ -140,6 +140,23 @@ footer div {
     padding-right: 10px;
 }
 
+.hint {
+    display: inline-block; 
+    position: relative; 
+}
+
+.hint:hover::after {
+    content: attr(data-title); 
+    position: absolute; 
+    left: 20%; top: 30%; 
+    z-index: 1; 
+    background: rgba(222,222,230,0.8); 
+    font-family: Arial, sans-serif; 
+    font-size: 11px; 
+    padding: 5px 10px;
+    border: 1px solid #333; 
+}
+
 .clearfix:after {
     visibility: hidden;
     display: block;
