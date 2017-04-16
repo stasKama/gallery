@@ -86,19 +86,19 @@
 	border: none;
 }
 
-.bt-yes {
+#bt-yes {
     background-color: #1f862a;
 }
 
-.bt-no {
+#bt-no {
     background-color: #ff0000;
 }
 
-.bt-yes, .bt-no {
+#bt-yes, #bt-no {
     cursor: pointer;
 }
 
-.bt-yes:hover, .bt-no:hover {
+#bt-yes:hover, #bt-no:hover {
     color: #fff;
 }
 

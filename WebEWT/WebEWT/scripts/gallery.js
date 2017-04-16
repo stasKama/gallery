@@ -77,7 +77,7 @@
         $(".question").show();
     });
 
-    $(".bt-yes").click(function (e) {
+    $("#bt-yes").click(function (e) {
         $.ajax({
             url: "/Image/DeleteImage",
             type: 'POST',
@@ -101,7 +101,7 @@
         e.preventDefault();
     });
 
-    $(".bt-no").click(function () {
+    $("#bt-no").click(function () {
         $(".question").hide();
     });
 
