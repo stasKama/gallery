@@ -28,7 +28,7 @@
 <div class="wrapper">
 @foreach (var item in Model)
 {
-    <h2>@Html.DisplayFor(modelItem => item.Name)</h2>
+    <h2 class="hero-tab">@Html.DisplayFor(modelItem => item.Name)</h2>
     <div class="block-hero">
         <article>
             <img src="@Html.DisplayFor(modelItem => item.ImageURL)" class="left-img" />
