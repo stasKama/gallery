@@ -141,12 +141,20 @@ namespace UnitTestWebEWT
         public void testSpoiler()
         {
             var driver = getDriver();
-            foreach (var art in driver.FindElements(By.ClassName("block-hero")))
+            var arts = driver.FindElements(By.ClassName("wrapper")).First().FindElements(By.ClassName("block-hero"));
+            foreach (var art in arts)
             {
                 Assert.AreEqual(art.Displayed, false);
             }
-            var spoilers = driver.FindElements(By.TagName("h2"));
+            var spoilers = driver.FindElements(By.ClassName("wrapper")).First().FindElements(By.TagName("h2"));
             Assert.AreEqual(spoilers.Count, 8);
+            int number = 0;
+            foreach (var h in spoilers)
+            {
+                h.Click();
+                Assert.AreEqual(arts.ElementAt(number++).Displayed, true);
+                Thread.Sleep(800);
+            }
             spoilers.ElementAt(1).Click();
             Thread.Sleep(500);
             spoilers.ElementAt(0).Click();
@@ -162,10 +170,6 @@ namespace UnitTestWebEWT
             spoilers.ElementAt(6).Click();
             Thread.Sleep(500);
             spoilers.ElementAt(4).Click();
-            foreach (var art in driver.FindElements(By.ClassName("block-hero")))
-            {
-                Assert.AreEqual(art.Displayed, true);
-            }
             driver.Quit();
         }
     }

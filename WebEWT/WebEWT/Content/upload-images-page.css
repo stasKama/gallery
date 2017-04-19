@@ -11,15 +11,17 @@
 	outline: none;
 	border: none;
     color: #000;
-    cursor: pointer;
+    cursor: default;
 }
 
 .no-active {
     background-color: #ff0000;
+    cursor: default;
 }
 
 .active {
     background-color: #2dad00;
+    cursor: pointer;
 }
 
 .active:hover {

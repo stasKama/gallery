@@ -52,10 +52,7 @@ namespace WebEWT.Controllers
                 var cleareData = fileData.Substring(dataIndex);
                 var fileInformation = Convert.FromBase64String(cleareData);
                 var bytes = fileInformation.ToArray();
-
-
                 var fileStream = System.IO.File.Create(path);
-
                 fileStream.Write(bytes, 0, bytes.Length);
                 fileStream.Close();
      
@@ -75,7 +72,8 @@ namespace WebEWT.Controllers
         {
             foreach (string nameImg in getAllImageUrl())
             {
-                if (nameImg.Contains(name))
+                var nameImage = nameImg.Split('/').Last().Split('.').First();
+                if (nameImage == name)
                 {
                     return true;
                 }

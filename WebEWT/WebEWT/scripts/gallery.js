@@ -85,14 +85,14 @@
                 nameImage: srcImageShow.substring(srcImageShow.lastIndexOf("/") + 1)
             },
             success: function (data) {
-                delete arrayImages[arrayImages.indexOf(srcImageShow)];
-                arrayImages.filter(function (x) {
-                    return x !== undefined && x !== null;
+                arrayImages[arrayImages.indexOf(srcImageShow)] = null;
+                arrayImages = arrayImages.filter(function (x) {
+                    return x != null;
                 });
                 $(getImage()).remove();
                 $('html').removeClass("scroll-html");
                 $(".question").hide();
-                $(".one-image").hide();               
+                $(".one-image").hide();
             },
             error: function (error) {
                 alert("Данные не удалены, повторите процедуру после обновления страницы");

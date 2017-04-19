@@ -30,6 +30,10 @@
         if ($(newNameId).val() != "") {
             isNameAvailable();
         } else {
+            if ($(submitId).hasClass("active")) {
+                $(submitId).removeClass("active");
+                $(submitId).addClass("no-active");
+            }
             $(messageId).text("Enter name in field \"Name Image\"");
         }
     });
@@ -44,8 +48,10 @@
             success: function (data) {
                 if (data) {
                     $(submitId).attr('disabled', false);
-                    $(submitId).addClass("active");
-                    $(submitId).removeClass("no-active");
+                    if ($(submitId).hasClass("no-active")) {
+                        $(submitId).removeClass("no-active");
+                        $(submitId).addClass("active");
+                    }
                 } else {
                     activeUploadmage();
                 }
@@ -61,8 +67,10 @@
 
     function activeUploadmage() {
         $(submitId).attr('disabled', true);
-        $(submitId).addClass("no-active");
-        $(submitId).removeClass("active");
+        if ($(submitId).hasClass("active")) {
+            $(submitId).removeClass("active");
+            $(submitId).addClass("no-active");
+        }
     }
 
     $(submitId).click(function (e) {
